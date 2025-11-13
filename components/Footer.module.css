@@ -1,0 +1,28 @@
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.nav div {
+    color: #fff;
+    font-weight: 7;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    bottom: 0;
+
+    padding: 1rem;
+    background-color: var(--first-color);
+}
+
+.light{
+    background-color: var(--first-color);
+}
+.dark{
+    background-color: #000;
+}
