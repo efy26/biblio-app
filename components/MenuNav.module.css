@@ -8,7 +8,69 @@
     margin: 0;
     padding: 0;
 }
-.nav a {
+.na ul {
+        display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    }
+.nav a, .na ul a {
     color: #fff;
     font-weight: 70;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.menuBurger, .menuBurgerX {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    right: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: white;
+    transition: all 0.3s;
+
+}
+
+
+
+.menuBurger:hover, .nav a:hover, .menuBurgerX:hover, .na ul a:hover{
+    color: rgb(177, 177, 177);
+}
+/* .na ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+} */
+@media screen and (max-width: 45rem) {
+    .menuBurger, .menuBurgerX {
+        display: block;
+        transition: all 0.3s;
+    }
+    .na ul {
+        display: none;
+    }
+    .nav ul{
+        opacity: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem;
+        list-style: none;
+        background-color: rgba(0, 0, 0, 0.264);
+    }
+    
+    
 }

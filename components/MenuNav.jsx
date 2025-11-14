@@ -1,10 +1,12 @@
 "use client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import styles from "./MenuNav.module.css";
 import { useTheme } from "./ThemeProvider";
 import { useLocale } from "./LocaleProvider";
 import { FormattedMessage } from "react-intl";
+import { BsList, BsXLg } from "react-icons/bs";
 
 export default function MenuNav() {
   const routeur = useRouter(); //import s'il faut utiliser route
@@ -27,9 +29,26 @@ export default function MenuNav() {
       setLocale("fr");
     }
   };
+
+ const [openMenu, setOpenMenu] = useState(false)
+
+ const toggleMenu = () => {setOpenMenu(!openMenu)}
   return (
-    <nav className={styles.nav}>
-      <ul>
+    <nav className={openMenu ? styles.nav : styles.na}>
+        <div>
+
+            {openMenu ? (
+<BsXLg className={styles.menuBurgerX} onClick={toggleMenu}/>
+                
+            ) : (
+<BsList className={styles.menuBurger} onClick={toggleMenu}/>
+            )
+
+            }
+
+
+        </div>
+       <ul>
         <li>
           <Link href="/">
             <FormattedMessage id="app.header.menu.lien1" />
@@ -56,12 +75,8 @@ export default function MenuNav() {
           </Link>
         </li>
 
-        {/* autre methode */}
-        {/* <li onClick={() => routeur.push('/')}><FormattedMessage id='app.header.menu.lien1'/></li>
-            <li onClick={() => routeur.push('/documents')}><FormattedMessage id='app.header.menu.lien2'/></li>
-            <li onClick={() => routeur.push('/contact')}><FormattedMessage id='app.header.menu.lien3'/></li>
-            <li onClick={() => routeur.push('/connexion')}><FormattedMessage id='app.header.menu.lien4'/></li> */}
-      </ul>
+        
+      </ul> 
 
       <label>
         Mode Sombre :
@@ -85,3 +100,8 @@ export default function MenuNav() {
     </nav>
   );
 }
+{/* autre methode */}
+        {/* <li onClick={() => routeur.push('/')}><FormattedMessage id='app.header.menu.lien1'/></li>
+            <li onClick={() => routeur.push('/documents')}><FormattedMessage id='app.header.menu.lien2'/></li>
+            <li onClick={() => routeur.push('/contact')}><FormattedMessage id='app.header.menu.lien3'/></li>
+            <li onClick={() => routeur.push('/connexion')}><FormattedMessage id='app.header.menu.lien4'/></li> */}
